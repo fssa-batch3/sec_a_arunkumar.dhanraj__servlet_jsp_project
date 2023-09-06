@@ -1,0 +1,10 @@
+com\fssa\creckettApp\servlet\GetAllMatchServlet.class
+com\fssa\creckettApp\servlet\GetMatchJSONObjectServlet.class
+com\fssa\creckettApp\servlet\ListTurfsList.class
+com\fssa\creckettApp\servlet\GetAllMatchJSONServlet.class
+com\fssa\creckettApp\servlet\GetAllUserServlet.class
+com\fssa\creckettApp\servlet\RegistrationServlet.class
+com\fssa\creckettApp\servlet\CreateTurfServlet.class
+com\fssa\creckettApp\servlet\UpdateTurfServlet.class
+com\fssa\creckettApp\servlet\LoginServlet.class
+com\fssa\creckettApp\servlet\LogoutServlet.class
