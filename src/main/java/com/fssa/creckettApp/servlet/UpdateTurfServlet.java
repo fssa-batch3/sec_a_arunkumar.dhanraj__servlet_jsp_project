@@ -71,6 +71,7 @@ public class UpdateTurfServlet extends HttpServlet {
 
 		} catch (ServiceException e) {
 			patcher = request.getRequestDispatcher("updateTurf.jsp?error=" + e.getMessage());
+			request.setAttribute("updateTurf", updatedTurf);
 		}
 
 		patcher.forward(request, response);

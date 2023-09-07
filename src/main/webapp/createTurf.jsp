@@ -4,6 +4,10 @@
 <meta charset="ISO-8859-1">
 <title>Host Turf</title>
 
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
 <style>
 body {
 	margin: 0px;
@@ -64,27 +68,39 @@ form div {
 
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="turf_div">
-		<h1>Create turf</h1>
-	</div>
-
 	<%
 	String error = (String) request.getParameter("error");
 
 	if (error != null) {
-		out.println("<p>" + error + "</p>");
+	%>
+
+	<div class="alert alert-danger" role="alert">  <%=error %> </div>
+
+	<%
 	}
 	%>
+
+
+
+
+	<div class="turf_div">
+		<h1>Create turf</h1>
+	</div>
+
+
+
+
+
 	<section>
 
 		<form action="CreateTurfServlet">
 			<div>
 				<label class="label-profile">Image URL: </label> <input type="text"
-					class="file-choose" id="file" required name="image" />
+					class="file-choose" id="file" required name="image"  autofocus="autofocus" required/>
 			</div>
 			<div>
 				<label>Ground details:</label>
-				<textarea id="details" cols="20" rows="1" required name="message">Freshworks Turf, MGR nagar, Perungudi</textarea>
+				<textarea id="details" cols="20" rows="1" required name="message" required></textarea>
 			</div>
 			<div>
 				<button type="submit" class="submit-btn">Submit</button>

@@ -119,7 +119,7 @@
 
 			</div>
 			<div class="details-book-btn">
-				<a href="./Pages/Book.html"><button>Book now</button></a>
+				<a href="Book.jsp"><button>Book now</button></a>
 				<%
 				User user = (User) request.getSession().getAttribute("loggedUser");
 				if (turf.getCreatedBy().getId() == user.getId()) {

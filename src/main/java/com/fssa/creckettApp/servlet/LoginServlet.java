@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
 		} catch (ServiceException e) {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp?errorMessage=Invalid email or password");
+			request.setAttribute("logUser", user);
 			dispatcher.forward(request, response);
 		}
 

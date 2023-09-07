@@ -8,12 +8,23 @@
 <title>Header</title>
 
 <style>
-.custom-navbar-bg {
-    background-color: teal ;
+
+.navbar.custom-navbar-bg {
+    background-color:  #00A86B !important;
+   
+}
+.navbar-brand{
+font-size: 24px !important;
+}
+a{
+color:black !important;
+}
+.nav-item{
+ 
+ font-size: 18px !important;
 }
 
 </style>
-
 
 </head>
 
@@ -24,7 +35,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
 
-	<nav class="navbar custom-navbar-bg bg-dark navbar-expand-lg bg-body-tertiary"
+	<nav
+		class="navbar custom-navbar-bg bg-dark navbar-expand-lg bg-body-tertiary"
 		data-bs-theme="dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.jsp">Creckett</a>
@@ -49,11 +61,11 @@
 					<%
 					} else {
 					%>
-					
+
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="home.jsp">Home</a></li> 
-						
-					<li class="nav-item"><a class="nav-link" href="#"><%=loggedUser.getName()%></a>
+						aria-current="page" href="home.jsp">Home</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="profile.jsp"><%=loggedUser.getName()%></a>
 
 					</li>
 					<li class="nav-item"><a class="nav-link" href="LogoutServlet">Logout</a>

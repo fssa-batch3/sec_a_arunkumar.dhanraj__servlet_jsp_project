@@ -1,27 +1,41 @@
+<%@ page import="com.fssa.creckett.model.User"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Registration</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
 </head>
 
 <style>
-.registraion{
-
+.registraion {
+	margin-top: 20px;
 	display: flex;
-	flex-direction:column;;
+	flex-direction: column;;
 	justify-content: center;
-	align-items: center; 
-	gap:40px;
+	align-items: center;
+	gap: 10px;
 }
+
 .form {
 	border: 1px solid;
-	width: 300px;
 	padding: 70px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap:10px;
+	gap: 10px;
+	width: 310px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: -6px;
 }
 </style>
 
@@ -29,24 +43,48 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="registraion">
-	<br>
 		<h1>Registration</h1>
 
 		<%
 		String errorMessage = request.getParameter("errorMessage");
+
 		if (errorMessage != null) {
-			out.println("<p>" + errorMessage + "</p>");
+		%>
+
+		<div class="alert alert-danger" role="alert">
+			<%=errorMessage%>
+		</div>
+
+		<%
+		}
+
+		User regUser = (User) request.getAttribute("regUser");
+
+		String username = "";
+		String email = "";
+		String password = "";
+		String phonenumber = "";
+
+		if (regUser != null) {
+		username = regUser.getName();
+		email = regUser.getEmail();
+		password = regUser.getPassword();
+		phonenumber = regUser.getPhonenumber();
 		}
 		%>
 		<div class="form">
 			<form action="registration" method="post">
+
 				<label>Username: </label> <input type="text" name="username"
-					placeholder="Enter Username" value="Ajmal"> <br /> <label>Email:
-				</label> <input type="email" name="email" placeholder="Enter email" value="ajmal@gmail.com">
-				<br /> <label>Password: </label> <input type="password"
-					name="password" placeholder="Enter password" value="Arun@2022"> <br /> <label>Phonenumber:
-				</label> <input type="text" name="phonenumber"
-					placeholder="Enter Phonenumber" value="6385102548"> <br />
+					placeholder="Enter Username" autofocus="autofocus" required value="<%=username %>">
+				<br /> <label>Email: </label> <input type="email" name="email"
+					placeholder="Enter email" required value="<%=email %>"> <br /> <label>Password:
+				</label> <input type="password" name="password" placeholder="Enter password"
+					required value="<%= password%>"> <br /> <label>Phonenumber: </label> <input
+					type="text" name="phonenumber" placeholder="Enter Phonenumber"
+					required value="<%= phonenumber%>"> <br />
+
+
 				<button type="submit">Submit</button>
 			</form>
 		</div>

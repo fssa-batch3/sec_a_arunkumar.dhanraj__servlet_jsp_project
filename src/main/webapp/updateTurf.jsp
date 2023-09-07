@@ -6,6 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>Update Turf</title>
 
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+
 <style>
 body {
 	margin: 0px;
@@ -69,20 +74,28 @@ form div {
 
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="turf_div">
-		<h1>Update turf</h1>
-	</div>
+
 
 	<%
 	String error = (String) request.getParameter("error");
 
 	if (error != null) {
-		out.println("<p>" + error + "</p>");
-	}
+	%>
 
+	<div class="alert alert-danger" role="alert">
+		<%=error%>
+	</div>
+
+	<%
+	}
 	String id = (String) request.getParameter("id");
 	%>
+	<div class="turf_div">
+		<h1>Update turf</h1>
+	</div>
+	
 	<section>
+
 
 		<form action="UpdateTurfServlet?id=<%=id%>" method="post">
 			<div>

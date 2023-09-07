@@ -38,7 +38,7 @@ public class RegistrationServlet extends HttpServlet {
 			patcher = request.getRequestDispatcher("login.jsp");
 		} catch (ServiceException e) {
 			patcher = request.getRequestDispatcher("registration.jsp?errorMessage="+e.getMessage());
-
+            request.setAttribute("regUser", user);
 		}
 
 		patcher.forward(request, response);
