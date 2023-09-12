@@ -96,11 +96,11 @@ form div {
 		<form action="CreateTurfServlet">
 			<div>
 				<label class="label-profile">Image URL: </label> <input type="text"
-					class="file-choose" id="file" required name="image"  autofocus="autofocus" required/>
+					class="file-choose" id="file" required name="image"  autofocus="autofocus" required value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdgY_ynR9XTmt2YwcRGZM5C-ix9ubr7vhP7g&usqp=CAU"/>
 			</div>
 			<div>
 				<label>Ground details:</label>
-				<textarea id="details" cols="20" rows="1" required name="message" required></textarea>
+				<textarea id="details" cols="20" rows="1" required name="message" required>Cric Turf, Adyar, Chennai</textarea>
 			</div>
 			<div>
 				<button type="submit" class="submit-btn">Submit</button>

@@ -128,12 +128,10 @@
 					<a href="UpdateTurfServlet?id=<%=turf.getTurfId()%>"> <img
 						src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-editor-pen-pencil-write-icon--4.png"
 						alt="edit" />
-					</a> 
-					<a href="DeleteTurfServlet?id=<%=turf.getTurfId()%>">
-					<img
+					</a> <a href="DeleteTurfServlet?id=<%=turf.getTurfId()%>"> <img
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0INZjIG3A7lLPHl9f5ie-cKkVe74VfbggQ&usqp=CAU"
 						alt="delete" />
-						</a>
+					</a>
 				</div>
 				<%
 				}

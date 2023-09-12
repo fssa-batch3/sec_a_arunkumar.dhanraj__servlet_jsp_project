@@ -60,10 +60,10 @@ form {
 
 		User regUser = (User) request.getAttribute("regUser");
 
-		String username = "";
-		String email = "";
-		String password = "";
-		String phonenumber = "";
+		String username = "Muthu";
+		String email = "muthu@gmail.com";
+		String password = "Arun@2022";
+		String phonenumber = "9363630498";
 
 		if (regUser != null) {
 		username = regUser.getName();
