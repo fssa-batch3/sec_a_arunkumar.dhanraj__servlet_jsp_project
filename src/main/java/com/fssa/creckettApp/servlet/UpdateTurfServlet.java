@@ -1,7 +1,6 @@
 package com.fssa.creckettApp.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,10 +33,10 @@ public class UpdateTurfServlet extends HttpServlet {
 
 			request.setAttribute("updateTurf", turf);
 
-			patcher = request.getRequestDispatcher("updateTurf.jsp");
+			patcher = request.getRequestDispatcher("/Pages/Turf/Pages/updateTurf.jsp");
 
 		} catch (ServiceException e) {
-			patcher = request.getRequestDispatcher("getAllTurfList.jsp?error=Cannot update now come after some time");
+			patcher = request.getRequestDispatcher("/Pages/Turf/Turf.jsp?error=Cannot update now come after some time");
 		}
 
 		patcher.forward(request, response);
@@ -55,26 +54,18 @@ public class UpdateTurfServlet extends HttpServlet {
 
 		Turf updatedTurf = new Turf(turfId, imageUrl, details);
 
-		RequestDispatcher patcher = null;
-
 		try {
 
-			TurfService turfService = new TurfService();
+			new TurfService().updateTurf(updatedTurf);
 
-			turfService.updateTurf(updatedTurf);
-
-			List<Turf> turfList = turfService.turfList();
-
-			request.setAttribute("turfList", turfList);
-
-			patcher = request.getRequestDispatcher("getAllTurfList.jsp");
+			response.sendRedirect(request.getContextPath() + "/ListTurfsList");
 
 		} catch (ServiceException e) {
-			patcher = request.getRequestDispatcher("updateTurf.jsp?error=" + e.getMessage());
+			RequestDispatcher patcher = request
+					.getRequestDispatcher("/Pages/Turf/Pages/updateTurf.jsp?error=" + e.getMessage());
 			request.setAttribute("updateTurf", updatedTurf);
+			patcher.forward(request, response);
 		}
-
-		patcher.forward(request, response);
 
 	}
 

@@ -1,0 +1,287 @@
+html {
+  scroll-behavior: smooth;
+}
+.edit-delete-btn {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  display: flex;
+  gap: 10px;
+}
+.edit-delete-btn img {
+  width: 26px;
+}
+.edit-delete-btn img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+#sec-1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+}
+.content h1 {
+  font-size: 40px;
+  font-weight: 550;
+}
+.content p {
+  font-size: 20px;
+}
+.content-image img {
+  width: 340px;
+  border-radius: 20px;
+}
+.content button {
+  font-size: 17px;
+  padding: 9px 19px;
+  background-color: #94ca65;
+  border: none;
+  border-radius: 20px;
+}
+.content button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid;
+}
+
+.host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.host p {
+  font-size: 25px;
+}
+.no-matches {
+  display: none;
+  text-align: center;
+  font-size: 23px;
+  opacity: 0.6;
+  padding: 40px;
+}
+.host button {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #94ca65;
+}
+.host button:hover {
+  cursor: pointer;
+  background-color: #2a850e;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  margin: 25px;
+  border-radius: 4px;
+  border: #132a13 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 700px;
+  position: relative;
+}
+#container {
+  padding-top: 23px;
+}
+
+.opponent-logo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid;
+  margin-left: 12px;
+  margin-right: 12px;
+  position: relative;
+}
+.opponent-logo h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.opponent-logo p {
+  font-size: 20px;
+  text-align: center;
+}
+.adduser-p {
+  font-size: 28px;
+  text-align: center;
+  opacity: 0.7;
+}
+#adduser-p {
+  position: absolute;
+  /* right: 120px; */
+  bottom: 0px;
+}
+.add-user-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #2a850e;
+}
+#add-user-div {
+  margin-top: -62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #2a850e;
+}
+.oppo-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.add-user {
+  width: 100px;
+}
+.place-date-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 12px;
+}
+.place-date-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.place-date-div div {
+  display: flex;
+  gap: 2px;
+}
+.place-date-div img {
+  width: 20px;
+  height: 20px;
+}
+.join-btn {
+  margin-top: 5px;
+  display: flex;
+  align-items: baseline;
+}
+.join-btn button {
+  font-size: 17px;
+  padding: 8px 39px;
+  background-color: #65e863;
+  border: none;
+  border-radius: 4px;
+}
+.join-btn button:hover {
+  cursor: pointer;
+  background-color: #2a850e;
+}
+footer {
+  display: flex;
+  justify-content: space-evenly;
+
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
+footer p {
+  font-size: 18px;
+}
+.connect-images {
+  display: flex;
+  justify-content: space-between;
+}
+.links a {
+  text-decoration: none;
+  color: black;
+}
+.connect img {
+  width: 35px;
+}
+.link h1 {
+  text-align: start;
+}
+.links p:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 480px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    box-shadow: rgb(220 220 220) 0px 2px 8px;
+  }
+  .logo-div {
+    display: flex;
+  }
+  nav {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    gap: 30px;
+
+    margin-top: -5px;
+    padding: 5px;
+    justify-content: center;
+  }
+  .nav-list:hover {
+    color: #2a850e;
+    font-size: 17px;
+  }
+  .nav-list {
+    font-size: 19px;
+  }
+  .login-btn {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+  #sec-1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    gap: 40px;
+    width: fit-content;
+    height: fit-content;
+  }
+  #sec-2 {
+    margin-top: 80px;
+  }
+  .container-1,
+  .container-2,
+  .container-3,
+  .container-4 {
+    width: 75%;
+    z-index: -2;
+  }
+  .opponent-logo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer div {
+    font-size: 15px;
+  }
+  .email {
+    font-size: 15px;
+  }
+}

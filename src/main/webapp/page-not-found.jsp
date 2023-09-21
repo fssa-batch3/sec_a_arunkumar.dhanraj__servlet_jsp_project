@@ -37,11 +37,11 @@
     </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="<%=request.getContextPath() %>/Pages/Header/header.jsp"></jsp:include>
 <div class="error-container">
         <h1>404</h1>
         <p>Oops! The page you're looking for could not be found.</p>
-        <p>Go back to <a href="home.jsp">home</a>.</p>
+        <p>Go back to <a href="<%=request.getContextPath() %>/index.jsp">home</a>.</p>
     </div>
 </body>
 </html>

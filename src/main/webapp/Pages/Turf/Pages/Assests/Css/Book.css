@@ -1,0 +1,111 @@
+
+body {
+  font-family: "Alegreya", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* color:darkseagreen; */
+  background-color: aliceblue;
+}
+.form-div {
+  display: flex;
+  flex-direction: column;
+  border-radius: 9px;
+  border: 1px solid;
+  align-items: center;
+  gap: 30px;
+  font-size: 25px;
+  width: fit-content;
+  padding: 50px;
+  background-color: cornsilk;
+}
+.date {
+  /* text-align: start; */
+  display: flex;
+  padding-right: 61px;
+  gap: 20px;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.time-div {
+  display: flex;
+  gap: 20px;
+}
+.amt {
+  padding-top: 20px;
+}
+
+
+
+input {
+  border-radius: 5px;
+
+  margin: 10px;
+  border: none;
+  padding: 5px 25px;
+}
+#date,
+#from-time,
+#to-time {
+  margin-top: 4px;
+}
+button {
+  width: 150px;
+
+  border: none;
+
+  background-color: darkgreen;
+  color: white;
+  padding: 8px 0px;
+  font-size: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+
+  /* Add CSS styles here */
+  .turf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .turf-image {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .turf-details {
+    text-align: center;
+  }
+
+  .date-picker {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .time-slots {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .time-slot {
+    display: inline-block;
+    margin-right: 10px;
+  }

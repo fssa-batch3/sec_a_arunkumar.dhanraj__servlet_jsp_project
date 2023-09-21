@@ -2,7 +2,6 @@ package com.fssa.creckettApp.servlet;
 
 import java.io.IOException;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,22 +33,21 @@ public class LoginServlet extends HttpServlet {
 		try {
 
 			UserService service = new UserService();
-
 			service.loginUser(user);
+
 			User loggedUser = service.getUser(email);
 
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedUser", loggedUser);
 
-			response.sendRedirect("home.jsp");
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
 
 		} catch (ServiceException e) {
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp?errorMessage=Invalid email or password");
+			RequestDispatcher patcher = request.getRequestDispatcher("Pages/Login/login.jsp");
+			request.setAttribute("errorMessage", "Invalid Credentials");
 			request.setAttribute("logUser", user);
-			dispatcher.forward(request, response);
+			patcher.forward(request, response);
 		}
-
 	}
 
 }

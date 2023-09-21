@@ -31,17 +31,15 @@ public class RegistrationServlet extends HttpServlet {
 
 		User user = new User(username, email, password, phonenumber);
 
-		RequestDispatcher patcher = null;
-
 		try {
 			new UserService().registerUser(user);
-			patcher = request.getRequestDispatcher("login.jsp");
+			response.sendRedirect("Pages/Login/login.jsp");
 		} catch (ServiceException e) {
-			patcher = request.getRequestDispatcher("registration.jsp?errorMessage="+e.getMessage());
-            request.setAttribute("regUser", user);
+			RequestDispatcher patcher = request.getRequestDispatcher("Pages/Login/Register.jsp");
+			request.setAttribute("regUser", user);
+			request.setAttribute("errorMessage", e.getMessage());
+			patcher.forward(request, response);
 		}
-
-		patcher.forward(request, response);
 
 	}
 

@@ -43,10 +43,10 @@ public class CreateTurfServlet extends HttpServlet {
 
 		try {
 			host.hostTurf(turf);
-			response.sendRedirect("ListTurfsList");
+			response.sendRedirect(request.getContextPath()+"/ListTurfsList");
 		} catch (ServiceException e) {
 			
-			RequestDispatcher patcher= request.getRequestDispatcher("createTurf.jsp?error="+e.getMessage());
+			RequestDispatcher patcher= request.getRequestDispatcher("/Pages/Turf/Pages/createTurf.jsp?error="+e.getMessage());
 			patcher.forward(request, response);
 			
 		}

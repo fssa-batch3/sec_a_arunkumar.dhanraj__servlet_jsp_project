@@ -35,10 +35,10 @@ public class ListTurfsList extends HttpServlet {
 			turfList = new TurfService().turfList();
 			request.setAttribute("turfList", turfList);
 
-			patcher = request.getRequestDispatcher("getAllTurfList.jsp");
+			patcher = request.getRequestDispatcher("Pages/Turf/Turf.jsp");
 
 		} catch (ServiceException e) {
-			patcher = request.getRequestDispatcher("getAllTurfList.jsp?error=" + e.getMessage());
+			patcher = request.getRequestDispatcher("Pages/Turf/Turf.jsp?error=Cannot show turf list");
 		}
 
 		patcher.forward(request, response);
