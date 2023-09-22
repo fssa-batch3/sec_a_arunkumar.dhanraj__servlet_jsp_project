@@ -68,15 +68,41 @@
 			<div class="turf-list" id="turf-list">
 
 
-				<%
-				String error = request.getParameter("error");
 
-				@SuppressWarnings("unchecked")
-				List<Turf> turflist = (List<Turf>) request.getAttribute("turfList");
+				<!-- Success case for booking the turf -->
+				<%
+				Boolean booked = (Boolean) request.getAttribute("booked");
+				if (booked != null) {
+				%>
+				<script>
+    alert("You've successfully booked the turf");
+</script>
+				<%
+				}
+
+				request.removeAttribute("booked");
+				%>
+
+
+
+				<%
+				String error = (String) request.getAttribute("error");
 
 				if (error != null) {
-					out.println("<h1>" + error + "</h2>");
+				%>
+				<script>
+            		alert("<%=error%>");
+        		</script>
+
+				<%
+				request.removeAttribute("booked");
+				request.removeAttribute("error");
 				}
+				%>
+
+				<%
+				@SuppressWarnings("unchecked")
+				List<Turf> turflist = (List<Turf>) request.getAttribute("turfList");
 
 				if (turflist == null) {
 
@@ -118,9 +144,21 @@
 						</div>
 						<%
 						} else {
+						if (user != null) {
 						%>
-						<a href="<%=request.getContextPath() %>/Pages/Turf/Pages/book.jsp"><button>Book now</button></a>
+						<a
+							href="<%=request.getContextPath()%>/TurfBooking?turfId=
+							<%=turf.getTurfId()%>"><button>Book
+								now</button></a>
 						<%
+						} else {
+						%>
+
+						<a href="<%=request.getContextPath()%>/Pages/Login/login.jsp"><button>Book
+								now</button></a>
+
+						<%
+						}
 						}
 						%>
 					</div>
@@ -281,6 +319,8 @@
             window.location.href = '<%=request.getContextPath()%>/DeleteTurfServlet?id=' + turfId;
         }
     }
+    
+   
 </script>
 
 	<script src="../../script.js"></script>

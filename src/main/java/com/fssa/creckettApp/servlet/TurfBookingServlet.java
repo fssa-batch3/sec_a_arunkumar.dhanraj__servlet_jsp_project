@@ -1,7 +1,8 @@
 package com.fssa.creckettApp.servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,14 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.creckett.model.Turf;
+import com.fssa.creckett.model.TurfBooking;
 import com.fssa.creckett.model.User;
+import com.fssa.creckett.services.TurfBookingService;
 import com.fssa.creckett.services.TurfService;
 import com.fssa.creckett.services.exceptions.ServiceException;
 
 /**
  * Servlet implementation class TurfBookingServlet
  */
-@WebServlet("/TurfBookingServlet")
+@WebServlet("/TurfBooking")
 public class TurfBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,32 +30,54 @@ public class TurfBookingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession(false);
+		int turfId = Integer.parseInt(request.getParameter("turfId"));
 
-		User loggeduser = (User) session.getAttribute("loggedUser");
+		RequestDispatcher patcher = null;
 
-		if (loggeduser != null) {
-			
-			
+		try {
+			Turf turf = new TurfService().getTurfObject(turfId);
 
-			RequestDispatcher patcher = null;
+			patcher = request.getRequestDispatcher("Pages/Turf/Pages/book.jsp");
+			request.setAttribute("turf", turf);
 
-			try {
+		} catch (ServiceException e) {
+			patcher = request.getRequestDispatcher("Pages/Turf/Turf.jsp?error=" + e.getMessage());
+		}
+		patcher.forward(request, response);
 
-				List<Turf> turfList  = new TurfService().turfList();
-				request.setAttribute("turfList", turfList);
+	}
 
-				patcher = request.getRequestDispatcher("getAllTurfList.jsp");
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-			} catch (ServiceException e) {
-				patcher = request.getRequestDispatcher("getAllTurfList.jsp?error=" + e.getMessage());
-			}
+		int turfId = Integer.parseInt(request.getParameter("turfId"));
 
+		String dateStr = request.getParameter("date");
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date = LocalDate.parse(dateStr, dateFormatter);
+
+		String time = request.getParameter("time");
+
+		RequestDispatcher patcher = null;
+
+		try {
+			Turf turf = new Turf();
+			turf.setTurfId(turfId);
+
+			HttpSession session = request.getSession(false);
+			User user = (User) session.getAttribute("loggedUser");
+
+			TurfBooking booking = new TurfBooking(turf, user, date, time);
+
+			new TurfBookingService().bookTurf(booking);
+
+			response.sendRedirect("ListTurfsList?booked=" + true);
+
+		} catch (ServiceException e) {
+			patcher = request.getRequestDispatcher("ListTurfsList?error=Cannot book the turf now");
 			patcher.forward(request, response);
-			
-			
-		} else {
-			response.sendRedirect("login.jsp?errorMessage=You need to login before booking the turf");
+
 		}
 
 	}

@@ -23,8 +23,16 @@ public class ListTurfsList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		Boolean booked = Boolean.parseBoolean(request.getParameter("booked"));
 
 		List<Turf> turfList = null;
 
@@ -34,6 +42,9 @@ public class ListTurfsList extends HttpServlet {
 
 			turfList = new TurfService().turfList();
 			request.setAttribute("turfList", turfList);
+
+			if (booked != null)
+				request.setAttribute("booked", booked);
 
 			patcher = request.getRequestDispatcher("Pages/Turf/Turf.jsp");
 
