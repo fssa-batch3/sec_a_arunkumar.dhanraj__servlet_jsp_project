@@ -32,12 +32,13 @@ table {
 }
 .panel-body {
   margin-top: 100px;
-}
+}	
 .panel-heading {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  width: 66.7rem;
+  width: 62.7rem;
+  margin-left: 87px;
 }
 /* #add_team {
   background-color: #94ca65;
@@ -67,6 +68,13 @@ table {
   border-top: 0;
 }
 
+input,select{
+	width:250px !important;
+}
+.availability{
+	width:150px;
+}
+
 /* .phone {
   width: 200px;
 } */
@@ -86,6 +94,8 @@ select {
   padding-right: 3rem;
 }
 
+
+
 .col-md-3 {
   display: flex;
   flex-direction: column;
@@ -103,13 +113,14 @@ select {
 .main-details {
   display: flex;
   width: max-content;
-  gap: 100px;
+  gap: 58px;
   margin-left: 59px;
 }
 .edit,
 .delete {
   padding: 5px;
   width: 100px;
+  background-color: rgb(233, 157, 157);
 }
 .edit:hover,
 .delete:hover {
@@ -152,6 +163,7 @@ select {
 }
 .done {
   width: 100px;
+  padding:5px;
   display: none;
 }
 .done:hover {

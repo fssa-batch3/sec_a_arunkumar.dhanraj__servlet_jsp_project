@@ -37,7 +37,7 @@
 			</div>
 		</section>
 		<section id="sec-2">
-			<div class="turf-content">
+	<%-- 		<div class="turf-content">
 				<p class="find-turf">Find your ground and start playing cricket</p>
 				<div class="nearby">
 					<p>I want a ground near:</p>
@@ -62,26 +62,13 @@
 				<a
 					href="<%=request.getContextPath()%>/Pages/Turf/Pages/createTurf.jsp"><button>Host
 						a turf</button></a>
-			</div>
+			</div> --%>
 			<!-- 1st part done -->
 
 			<div class="turf-list" id="turf-list">
 
 
 
-				<!-- Success case for booking the turf -->
-				<%
-				Boolean booked = (Boolean) request.getAttribute("booked");
-				if (booked != null) {
-				%>
-				<script>
-    alert("You've successfully booked the turf");
-</script>
-				<%
-				}
-
-				request.removeAttribute("booked");
-				%>
 
 
 
@@ -95,8 +82,6 @@
         		</script>
 
 				<%
-				request.removeAttribute("booked");
-				request.removeAttribute("error");
 				}
 				%>
 

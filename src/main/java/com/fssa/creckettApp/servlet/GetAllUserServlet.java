@@ -1,7 +1,6 @@
 package com.fssa.creckettApp.servlet;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +19,7 @@ import com.fssa.creckett.model.User;
  */
 @WebServlet("/GetAllUserServlet")
 public class GetAllUserServlet extends HttpServlet {
-
+  
 	private static final long serialVersionUID = 1L;
 
 	@Override

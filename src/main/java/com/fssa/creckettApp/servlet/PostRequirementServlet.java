@@ -10,43 +10,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fssa.creckett.model.Turf;
+import com.fssa.creckett.model.Requirement;
 import com.fssa.creckett.model.User;
-import com.fssa.creckett.services.TurfService;
+import com.fssa.creckett.services.RequirementService;
 import com.fssa.creckett.services.exceptions.ServiceException;
 
 /**
- * Servlet implementation class CreateTurfServlet
+ * Servlet implementation class PostRequirementServlet
  */
-@WebServlet("/CreateTurfServlet")
-public class CreateTurfServlet extends HttpServlet {
+@WebServlet("/PostRequirement")
+public class PostRequirementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String image = request.getParameter("image");
 		String message = request.getParameter("message");
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 
-		User createdBy = (User) session.getAttribute("loggedUser");
+		User createdUser = (User) session.getAttribute("loggedUser");
 
-		Turf turf = new Turf(image, message);
-		turf.setCreatedBy(createdBy);
-
-		TurfService host = new TurfService();
+		Requirement req = new Requirement(message, createdUser);
 
 		try {
-			host.hostTurf(turf);
-			response.sendRedirect(request.getContextPath() + "/ListTurfsList");
+			new RequirementService().postRequirement(req);
+
+			response.sendRedirect(request.getContextPath() + "/RequirementList");
 		} catch (ServiceException e) {
-
-			RequestDispatcher patcher = request
-					.getRequestDispatcher("/Pages/Turf/Pages/createTurf.jsp?error=" + e.getMessage());
+			RequestDispatcher patcher = request.getRequestDispatcher("/Pages/Requirment/Pages/Form.jsp");
+			request.setAttribute("error", e.getMessage());
+			request.setAttribute("message", message);
 			patcher.forward(request, response);
-
 		}
 
 	}

@@ -11,41 +11,82 @@
 
 </head>
 <body>
+	<jsp:include page="../../Header/header.jsp"></jsp:include>
 	<div class="turf-container">
-		<!-- Turf Image and Details -->
-		<img class="turf-image" src="${turf.image}" alt="Turf Image">
-		<div class="turf-details">
-			<p>Location: ${turf.message}</p>
-		</div>
-
-		<form action="TurfBooking?turfId=${turf.turfId}" method="post">
-
-			<!-- Date Picker -->
-			<div class="date-picker">
-				<input id="turfId" value="${turf.turfId}"> <label for="date">Select
-					a date:</label> <input type="date" id="date" min="YYYY-MM-DD" name="date"
-					onchange="generateTimeSlots()" required="required" />
 
 
-			</div>
 
-			<!-- Time Slots -->
-			<div class="time-slots">
-				<p>Select a time slot:</p>
-				<div id="time-slots-container">
-					<!-- Time slots will be generated here using JavaScript -->
+		<div class="popup">
+			<div class="popup-content">
+				<span class="close-icon">&#10006;</span>
+				<div class="popup-body">
+					<form
+						action="<%=request.getContextPath()%>/TurfBooking?turfId=${turf.turf.turfId}"
+						method="post">
+						<div class="date-picker">
+							<input id="turfId" value="${turf.turf.turfId}"
+								style="display: none;"> <label for="date">Select
+								a date:</label> <input type="date" id="date" min="YYYY-MM-DD"
+								name="date" onchange="generateTimeSlots()" required="required">
+						</div>
+						<div class="time-slots">
+							<p class="times" id="avail">Available Time slots:</p>
+							<div id="time-slots-container">
+								<!-- Time slots will be generated here using JavaScript -->
+							</div>
+						</div>
+						<button type="submit">Book now</button>
+					</form>
 				</div>
 			</div>
+		</div>
 
-			<button id="book" type="submit">Book now</button>
-		</form>
+
+
+
+		<div class="Desktop1">
+			<div class="Frame6">
+				<img class="Rectangle1" src="${turf.turf.image}" />
+				<div class="Frame5">
+					<div class="Frame3">
+						<div class="TaramaniTurf">Location</div>
+						<div class="location">${turf.turf.message}</div>
+					</div>
+					<div class="Frame4">
+						<div class="Frame1">
+							<div class="BookTurf" id="book">Book Now</div>
+						</div>
+						<div class="Frame2">
+							<div class="Contact" id="contact-button">Contact</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+
+
+
+	<!-- Popup for user details -->
+	<div class="user-details-popup">
+		<div class="popup-content">
+			<span class="close-icon">&#10006;</span>
+			<div class="popup-body">
+				<h2>User Details</h2>
+				<p>Name: ${turf.turf.createdBy.name} </p>
+				<p>Email: ${turf.turf.createdBy.email}</p>
+				<p>Phone: ${turf.turf.createdBy.phonenumber}</p>
+			</div>
+		</div>
+	</div>
+
+
 
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 	<script
 		src="<%=request.getContextPath()%>/Pages/Turf/Pages/Book_turf.js"></script>
-
-
 </body>
 </html>

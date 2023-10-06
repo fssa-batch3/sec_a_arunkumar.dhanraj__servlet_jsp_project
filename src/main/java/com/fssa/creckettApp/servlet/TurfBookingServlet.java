@@ -1,6 +1,7 @@
 package com.fssa.creckettApp.servlet;
 
 import java.io.IOException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -16,7 +17,6 @@ import com.fssa.creckett.model.Turf;
 import com.fssa.creckett.model.TurfBooking;
 import com.fssa.creckett.model.User;
 import com.fssa.creckett.services.TurfBookingService;
-import com.fssa.creckett.services.TurfService;
 import com.fssa.creckett.services.exceptions.ServiceException;
 
 /**
@@ -32,15 +32,19 @@ public class TurfBookingServlet extends HttpServlet {
 
 		int turfId = Integer.parseInt(request.getParameter("turfId"));
 
+		
 		RequestDispatcher patcher = null;
 
 		try {
-			Turf turf = new TurfService().getTurfObject(turfId);
+			TurfBooking turf = new TurfBookingService().getTurfBooking(turfId);
 
 			patcher = request.getRequestDispatcher("Pages/Turf/Pages/book.jsp");
 			request.setAttribute("turf", turf);
+			
+			System.out.println(turf.toString());
 
 		} catch (ServiceException e) {
+			e.printStackTrace();
 			patcher = request.getRequestDispatcher("Pages/Turf/Turf.jsp?error=" + e.getMessage());
 		}
 		patcher.forward(request, response);
@@ -72,9 +76,10 @@ public class TurfBookingServlet extends HttpServlet {
 
 			new TurfBookingService().bookTurf(booking);
 
-			response.sendRedirect("ListTurfsList?booked=" + true);
+			response.sendRedirect("ListTurfsList");
 
 		} catch (ServiceException e) {
+			e.printStackTrace();
 			patcher = request.getRequestDispatcher("ListTurfsList?error=Cannot book the turf now");
 			patcher.forward(request, response);
 

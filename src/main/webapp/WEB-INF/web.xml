@@ -20,8 +20,6 @@
 	</servlet-mapping>
 
 	<error-page>
-		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
-			exceptions -->
 		<error-code>404</error-code> <!-- HTTP Error code Page Not found -->
 		<location>/page-not-found.jsp</location>
 	</error-page>

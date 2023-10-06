@@ -112,8 +112,8 @@ h1 {
 
 		User logUser = (User) request.getAttribute("logUser");
 
-		String email = "muthu@gmail.com";
-		String password = "Arun@2022";
+		String email = "";
+		String password = "";
 
 		if (logUser != null) {
 		email = logUser.getEmail();

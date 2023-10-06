@@ -54,7 +54,7 @@
 			want!</div>
 		<div class="feat-container">
 
-			<a href="<%= request.getContextPath()%>/ListTurfsList">
+			<a href="<%=request.getContextPath()%>/ListTurfsList">
 				<div class="container-turf" onclick="turf_container()">
 					Turf <img src="./Assests/Images/turf.jpg" alt="Turf" />
 
@@ -73,16 +73,23 @@
 					</button>
 				</a>
 			</div>
-			<div class="container-requirements" onclick="requirement_container()">
-				Requirment <img src="./Assests/Images/account-multiple-plus.svg"
-					alt="Account multiple plus" /> <a
-					href="./Pages/Requirment/Requirment.html">
+
+			<a href="<%=request.getContextPath()%>/RequirementList">
+
+				<div class="container-requirements">
+					Requirement <img src="./Assests/Images/account-multiple-plus.svg"
+						alt="Account multiple plus" />
 					<button>
 						<span>Post now</span>
 					</button>
-				</a>
-			</div>
+
+
+				</div>
+
+			</a>
 		</div>
+
+
 	</section>
 	<section id="about">
 		<div class="search">

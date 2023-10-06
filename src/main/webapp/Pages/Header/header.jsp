@@ -6,7 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Header</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/Assests/Css/header.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/Assests/Css/header.css" />
 
 <link
 	href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
@@ -48,13 +49,12 @@
 			<%
 			} else {
 			%>
-			<img class="profile"
-			style="display: block"
+			<img class="profile" style="display: block"
 				src="<%=request.getContextPath()%>/Assests/Images/icon/custom.png"
 				alt="profile" onclick="dropdown()" />
 			<div class="dropdown-content" id="myDropdown">
-				<a href="<%= request.getContextPath() %>/LogoutServlet">Log out</a> <a
-					href="#">Profile</a>
+				<a href="<%=request.getContextPath()%>/LogoutServlet">Log out</a> <a
+					href="<%=request.getContextPath()%>/Pages/Profile/userprofile.jsp">Profile</a>
 			</div>
 			<%
 			}
