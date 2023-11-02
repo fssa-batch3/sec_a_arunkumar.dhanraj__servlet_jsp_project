@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My Bookings</title>
 <style>
 .container {
@@ -16,7 +17,7 @@
 	justify-content: center;
 	gap: 35px;
 	display: flex !important;
-}]
+}
 .bookings{
 text-align: center !important;
 }
@@ -53,11 +54,35 @@ text-align: center !important;
 .owner-details {
 	margin-top: 10px;
 }
+#back{
+  position:absolute;
+  top:13%;
+  left:2%;
+  border: 1px solid;
+  font-size:19px;
+  padding: 7px 27px;
+  cursor: pointer;
+
+}
+.no-book{
+display: flex;
+flex-direction: column;
+}
+#explore{
+border: 1px solid;
+  font-size:16px;
+  width:130px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 120px;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="../../../../Pages/Header/header.jsp"></jsp:include>
 
+<a href="<%=request.getContextPath() %>/Pages/Profile/userprofile.jsp">
+<button class="back" id="back">Back</button> </a>
 <h1 class="bookings" style="text-align: center;">Your Bookings</h1>
 
 	<div class="container">
@@ -112,8 +137,15 @@ text-align: center !important;
 		}
 		}
 		else{
+			%>
+			<div class="no-book">
+			<h1> You haven't booked anything</h1>
+		
+	<a href="<%=request.getContextPath() %>/ListTurfsList">
+			<button id="explore"> Explore Now!</button> </a>
 			
-			out.println("<h1> You haven't booked anything</h1>");
+			</div>
+		<%	
 		}
 		%>
 

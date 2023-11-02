@@ -65,14 +65,7 @@
 				</div>
 			</a>
 
-			<div class="container-opponents" onclick="opponent_container()">
-				Opponent <img src="./Assests/Images/boys of cricket.jpg"
-					alt="Boys of cricket" /> <a href="./Pages/Opponent/Opponent.html">
-					<button>
-						<span>Book now</span>
-					</button>
-				</a>
-			</div>
+		
 
 			<a href="<%=request.getContextPath()%>/RequirementList">
 
@@ -87,6 +80,17 @@
 				</div>
 
 			</a>
+			
+				<div class="container-opponents" onclick="opponent_container()">
+				Opponent <img src="./Assests/Images/boys of cricket.jpg"
+					alt="Boys of cricket" /> <a href="">
+					<button>
+						<span>Coming soon</span>
+					</button>
+				</a>
+			</div>
+			
+			
 		</div>
 
 
@@ -152,6 +156,12 @@
 			</div>
 		</div>
 	</footer>
+<script>
+ function opponent_container(){
+	 alert("This page is under maintenance");
+ }
 
+
+</script>
 </body>
 </html>

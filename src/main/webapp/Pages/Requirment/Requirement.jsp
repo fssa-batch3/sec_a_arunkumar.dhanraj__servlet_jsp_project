@@ -93,7 +93,7 @@
 
 
 					<%
-					if (user.getId() == req.getPostedBy().getId()) {
+					if ( user!=null && user.getId() == req.getPostedBy().getId() ) {
 					%>
 					<div class="edit-delete-btn">
 						<img
@@ -105,24 +105,24 @@
 					<%
 					}
 					%>
-
-
+<!-- /Pages/Requirment/Pages/profile/req_profile.jsp
+ -->
 					<div class="more-info">
 						<div class="info">
-							<a href="./Pages/profile/Req_profile.html?req_id=your_email">
+							<a href="<%=request.getContextPath() %>/RequirementProfile?id=<%=req.getPostedBy().getEmail() %>">
 								<img
 								src="<%=request.getContextPath()%>/Pages/Requirment/Assests/Images/Image/boy.png"
 								alt="Profile">
 							</a>
 							<p>Profile</p>
 						</div>
-						<div class="info">
+						<div class="info" onclick="share()">
 							<img
 								src="<%=request.getContextPath()%>/Pages/Requirment/Assests/Images/Image/send.png"
 								alt="Profile">
 							<p>Share</p>
 						</div>
-						<div class="info">
+						<div class="info" onclick="contact(<%= req.getPostedBy().getPhonenumber()%>)">
 							<img
 								src="<%=request.getContextPath()%>/Pages/Requirment/Assests/Images/Image/contact.png"
 								alt="Profile">
@@ -184,5 +184,23 @@
 		</div>
 	</footer>
 
+
+
+<script>
+function contact(phoneNumber) {
+   
+    const message = "I saw your Requirement on the 'Creckett' website, and I'm looking forward to discussing it further";
+
+    const whatsappURL = "whatsapp://send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+    window.location.href = whatsappURL;
+}
+
+function share(){
+	alert("This feature is under maintenence");
+}
+
+
+</script>
 </body>
 </html>

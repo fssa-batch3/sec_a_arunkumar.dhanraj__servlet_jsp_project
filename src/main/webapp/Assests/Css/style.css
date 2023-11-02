@@ -199,6 +199,13 @@ button:hover .button-text {
 	border-radius: 10px;
 }
 
+.container-opponents{
+	background-color: rgb(192, 192, 192) !important;
+}
+.container-opponents button {
+	box-shadow: none !important;
+}
+
 .container-turf, .container-opponents, .container-requirements {
 	display: flex;
 	flex-direction: column;

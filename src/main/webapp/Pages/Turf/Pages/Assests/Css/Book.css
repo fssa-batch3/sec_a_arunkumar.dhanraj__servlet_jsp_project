@@ -124,6 +124,7 @@ select {
 	align-items: center;
 	display: inline-flex;
 	justify-content: center;
+	margin-top: 20px;
 }
 
 .Frame6 {
@@ -219,6 +220,38 @@ select {
 	font-weight: 400;
 	word-wrap: break-word;
 }
+
+
+/* CSS for Amenities section */
+.Amenities {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* CSS for About the Venue section */
+.AboutVenue {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    position: absolute;
+    top: 65%;
+}
+
+.AboutVenue h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.AboutVenue p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
 
 /*  pop up */
 

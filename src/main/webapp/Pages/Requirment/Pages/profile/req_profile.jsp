@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Profile</title>
-<link href="./Assests/Css/userprofile.css" rel="stylesheet" />
+<link href="<%=request.getContextPath() %>/Pages/Profile/Assests/Css/userprofile.css" rel="stylesheet" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -15,10 +15,10 @@
 </head>
 <body>
 
-	<jsp:include page="../../Pages/Header/header.jsp"></jsp:include>
+	<jsp:include page="../../../../Pages/Header/header.jsp"></jsp:include>
 
 	<%
-	User user = (User) session.getAttribute("loggedUser");
+	User user = (User) request.getAttribute("profile");
 
 	int id = user.getId();
 	System.out.print(id);
@@ -55,13 +55,7 @@
 								<p id="team-name"></p>
 							</div>
 						</button>
-						<a
-							href="<%=request.getContextPath()%>/TurfBookingList?id=<%=user.getId()%>">
-							<button id="booking">
-								<img src="./Assests/icon/appointment.png" alt="Booking" /> My
-								Bookings
-							</button>
-						</a>
+					
 						<!-- 		<button id="favorites">
 							<img src="./Assests/icon/heart.png" alt="Favorites" /> My
 							Favorites
@@ -69,7 +63,7 @@
 					</div>
 				</div>
 				<form class="panel-body" id="form"
-					action="<%=request.getContextPath()%>/profile">
+					action="<%=request.getContextPath()%>/RequirementList">
 					<div class="row">
 						<div class="col-md-3 col-lg-3">
 							<img alt="User Pic" id="profile-pic"
@@ -175,8 +169,7 @@
 								</table>
 							</div>
 							<div class="edit-delete-div">
-								<button class="edit" id="edit">Edit</button>
-								<button class="done" id="done" type="submit">Done</button>
+								
 
 								<button class="back" id="back">Back</button>
 							</div>
@@ -187,7 +180,7 @@
 		</div>
 	</div>
 
-	<script src="./userProfile.js"></script>
+
 
 </body>
 </html>

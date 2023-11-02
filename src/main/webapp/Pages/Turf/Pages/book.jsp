@@ -43,26 +43,41 @@
 
 
 
+<div class="Desktop1">
+    <div class="Frame6">
+        <img class="Rectangle1" src="${turf.turf.image}" />
+        <div class="Frame5">
+            <div class="Frame3">
+                <div class="TaramaniTurf">Location</div>
+                <div class="location">${turf.turf.message}</div>
+                <div class="Amenities">Amenities: Parking, First Aid, Change Room</div>
+            </div>
+            <div class="Frame4">
+                <div class="Frame1">
+                    <div class="BookTurf" id="book">Book Now</div>
+                </div>
+                <div class="Frame2">
+                    <div class="Contact" id="contact-button">Contact</div>
+                </div>
+            </div>
+        </div>
+        <div class="AboutVenue">
+            <h2>About the Venue</h2>
+            <p>
+                Welcome to Chad Turf, your ultimate destination for cricket enthusiasts. Our cricket turf offers a state-of-the-art playing experience with top-notch amenities. 
+                Located in a prime location, you'll have easy access to nearby parking facilities, first aid assistance, and spacious change rooms. 
 
-		<div class="Desktop1">
-			<div class="Frame6">
-				<img class="Rectangle1" src="${turf.turf.image}" />
-				<div class="Frame5">
-					<div class="Frame3">
-						<div class="TaramaniTurf">Location</div>
-						<div class="location">${turf.turf.message}</div>
-					</div>
-					<div class="Frame4">
-						<div class="Frame1">
-							<div class="BookTurf" id="book">Book Now</div>
-						</div>
-						<div class="Frame2">
-							<div class="Contact" id="contact-button">Contact</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                Whether you're a professional cricketer or just want to enjoy a game with friends, our venue is the perfect choice. Join us for an exceptional cricket experience!
+
+                Book your slot now and get ready to play your best game at Chad Turf.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+		
 
 	</div>
 
@@ -74,7 +89,7 @@
 		<div class="popup-content">
 			<span class="close-icon">&#10006;</span>
 			<div class="popup-body">
-				<h2>User Details</h2>
+				<h2>Contact Details</h2>
 				<p>Name: ${turf.turf.createdBy.name} </p>
 				<p>Email: ${turf.turf.createdBy.email}</p>
 				<p>Phone: ${turf.turf.createdBy.phonenumber}</p>

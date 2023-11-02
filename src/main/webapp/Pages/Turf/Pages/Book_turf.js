@@ -46,7 +46,7 @@ async function generateTimeSlots() {
 		// Generate time slots from the current hour until 10 PM
 		for (let i = currentTime; i < 22; i++) {
 			const startTime = formatTime(i + 1); // Format time with AM/PM
-			const endTime = formatTime(i + 2); // Format time with AM/PM
+			const endTime = formatTime(i + 3); // Format time with AM/PM
 
 			// Create an option element for each time slot
 
@@ -56,6 +56,7 @@ async function generateTimeSlots() {
 
 			// disabling the time if already someones book it
 			if (times.some((item) => item.includes(startTime + " - " + endTime))) {
+				option.style.backgroundColor = '#d4cccc';
 				option.disabled = true;
 			}
 
@@ -75,7 +76,7 @@ async function generateTimeSlots() {
 		// Generate time slots from 7 AM until 10 PM
 		for (let i = 7; i < 22; i++) {
 			const startTime = formatTime(i); // Format time with AM/PM
-			const endTime = formatTime(i + 1); // Format time with AM/PM
+			const endTime = formatTime(i + 2); // Format time with AM/PM
 
 			// Create an option element for each time slot
 			const option = document.createElement("option");
@@ -84,7 +85,9 @@ async function generateTimeSlots() {
 
 			// disabling the time if already someones book it
 			if (times.some((item) => item.includes(startTime + " - " + endTime))) {
+				option.style.backgroundColor = '#d4cccc';
 				option.disabled = true;
+				
 			}
 
 			// Append the option to the select element

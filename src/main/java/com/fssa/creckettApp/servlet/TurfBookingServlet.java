@@ -32,7 +32,6 @@ public class TurfBookingServlet extends HttpServlet {
 
 		int turfId = Integer.parseInt(request.getParameter("turfId"));
 
-		
 		RequestDispatcher patcher = null;
 
 		try {
@@ -40,8 +39,6 @@ public class TurfBookingServlet extends HttpServlet {
 
 			patcher = request.getRequestDispatcher("Pages/Turf/Pages/book.jsp");
 			request.setAttribute("turf", turf);
-			
-			System.out.println(turf.toString());
 
 		} catch (ServiceException e) {
 			e.printStackTrace();
@@ -76,7 +73,7 @@ public class TurfBookingServlet extends HttpServlet {
 
 			new TurfBookingService().bookTurf(booking);
 
-			response.sendRedirect("ListTurfsList");
+			request.getRequestDispatcher("/Pages/Turf/Pages/BookedTurf.jsp").forward(request, response);
 
 		} catch (ServiceException e) {
 			e.printStackTrace();
